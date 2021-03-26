@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    #app { padding: 35px; }
+  </style>
+</head>
+<body>
+<div id="app">
+  <div class="mb-3">
+    <div class="">
+    </div>
+    <label>Q1: </label>
+    <input
+      type="checkbox"
+      class=""
+      v-model="q1"
+    >
+
+    <label>Q2: </label>
+    <input
+      type="checkbox"
+      class=""
+      v-model="q2"
+    >
+
+    <br>
+    <hr>
+    <button
+        class="btn btn-outline-secondary"
+        type="button"
+        id="button-addon1"
+        @click="setCookie()"
+      >
+        <a href="vue_cookie_result.html">
+          Set Cookie Button
+        </a>
+      </button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+<script src="https://unpkg.com/vue-cookies@1.7.3/vue-cookies.js"></script>
+<link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+
+<script>
+  vm = new Vue({
+    el: '#app',
+    data: {
+      q1: false,
+      q2: false,
+    },
+    methods: {
+      setCookie:function(){
+        var cookieSet = { q1:this.q1, q2:this.q2 };
+        this.$cookies.config(60 * 60 * 24 * 30,'');
+        this.$cookies.set('CookieValue', cookieSet);
+      }
+  }
+});
+</script>
+
+</body>
+</html>

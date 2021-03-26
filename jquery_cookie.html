@@ -10,12 +10,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
 </head>
 <body>
-<h1>success!!</h1>
-<p class="target"></p>
+  <input type="text" class="target">
+  <br>
+  <a href="test.html">test</a>
 
 <script>
-  var target = $.cookie('config');
-  $('.target').text(target);
+  var target = $('.target').val();
+  $.cookie('config', target);
 </script>
 
 </body>
