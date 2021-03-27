@@ -31,9 +31,9 @@
     style="border:solid;"
     v-bind:class="{notActive: res1_1 && res1_2 && (res1_3 || res1_4)}"
   >
-    <div v-bind:class="{notActive: res1_1}">Text1_1</div>
-    <div v-bind:class="{notActive: res1_2}">Text1_2</div>
-    <div v-bind:class="{notActive: res1_3 || res1_4}">Text1_3</div>
+    <div v-bind:class="{notActive:res1_1}">Text1_1</div>
+    <div v-bind:class="{notActive:res1_2}">Text1_2</div>
+    <div v-bind:class="{notActive:res1_3 || res1_4}">Text1_3</div>
   </div>
 
   <hr>
@@ -42,10 +42,27 @@
     style="border:solid;"
     v-bind:class="{notActive: res2_1 && res2_2 && res2_3 && res2_4}"
   >
-    <div v-bind:class="{notActive: res2_1}">Text2_1</div>
-    <div v-bind:class="{notActive: res2_2}">Text2_2</div>
-    <div v-bind:class="{notActive: res2_3}">Text2_3</div>
-    <div v-bind:class="{notActive: res2_4}">Text2_4</div>
+    <div v-bind:class="{notActive:res2_1}">Text2_1</div>
+    <div v-bind:class="{notActive:res2_2}">Text2_2</div>
+    <div v-bind:class="{notActive:res2_3}">Text2_3</div>
+    <div v-bind:class="{notActive:res2_4}">Text2_4</div>
+  </div>
+
+  <hr>
+
+  <div
+    style="border:solid;"
+    v-bind:class="{notActive:setCource()}"
+  >
+    <div v-bind:class="{notActive:course1}">Course 1</div>
+    <div v-bind:class="{notActive:course2}">Course 2</div>
+    <div v-bind:class="{notActive:course3}">Course 3</div>
+    <div v-bind:class="{notActive:course4}">Course 4</div>
+    <div v-bind:class="{notActive:course5}">Course 5</div>
+    <div v-bind:class="{notActive:course6}">Course 6</div>
+    <div v-bind:class="{notActive:course7}">Course 7</div>
+    <div v-bind:class="{notActive:course8}">Course 8</div>
+    <div v-bind:class="{notActive:course9}">Course 9</div>
   </div>
 </div>
 
@@ -55,6 +72,7 @@
 
 <script>
   getCookie = this.$cookies.get('CookieValue')
+  var course = []
 
   vm = new Vue({
     el: '#app',
@@ -67,13 +85,82 @@
       res2_2: getCookie.q2_2,
       res2_3: getCookie.q2_3,
       res2_4: getCookie.q2_4,
+      course1: true,
+      course2: true,
+      course3: true,
+      course4: true,
+      course5: true,
+      course6: true,
+      course7: true,
+      course8: true,
+      course9: true,
     },
     methods: {
       getNumberMain:function(){
         var num = 0
-        getCookie.q3_1 == true ? num += 10000 : num += 0
-        getCookie.q3_2 == true ? num += 1000 : num += 0
+        getCookie.q3_1 == true ? num += 570000 : num += 0
+        getCookie.q3_2 == true ? num += 570000 : num += 0
+        getCookie.q3_3 == true ? num += 570000 : num += 0
+        getCookie.q4_1 == true ? num += 500000 : num += 0
+        getCookie.q4_2 == true ? num += 300000 : num += 0
+        getCookie.q4_3 == true ? num += 570000 : num += 0
+        getCookie.q4_4 == true ? num += 570000 : num += 0
+        getCookie.q4_5 == true ? num += 670000 : num += 0
+        getCookie.q4_6 == true ? num += 380000 : num += 0
+        getCookie.q4_7 == true ? num += 100000 : num += 0
+        getCookie.q4_8 == true ? num += 380000 : num += 0
         return num
+      },
+      getNumberSub:function(){
+        var num = 0
+        getCookie.q3_1 == true ? num += 150000 : num += 0
+        getCookie.q3_2 == true ? num += 150000 : num += 0
+        getCookie.q3_3 == true ? num += 150000 : num += 0
+        getCookie.q4_1 == true ? num += 800000 : num += 0
+        getCookie.q4_2 == true ? num += 60000  : num += 0
+        getCookie.q4_3 == true ? num += 150000 : num += 0
+        // getCookie.q4_4 == true ? num += 0 : num += 0
+        // getCookie.q4_5 == true ? num += 0 : num += 0
+        getCookie.q4_6 == true ? num += 100000 : num += 0
+        getCookie.q4_7 == true ? num += 160000 : num += 0
+        getCookie.q4_8 == true ? num += 480000 : num += 0
+        num += this.getNumberMain()
+        return num
+      },
+      setCource:function(){
+        getCookie.q3_1 == true ? course[1] = false : ''
+        getCookie.q3_2 == true ? course[1] = false : ''
+        getCookie.q3_3 == true ? course[2] = false : ''
+        getCookie.q4_1 == true ? course[3] = false : ''
+        getCookie.q4_2 == true ? course[4] = false : ''
+        getCookie.q4_3 == true ? course[1] = false : ''
+        getCookie.q4_4 == true ? course[5] = false : ''
+        getCookie.q4_5 == true ? course[6] = false : ''
+        getCookie.q4_6 == true ? course[7] = false : ''
+        getCookie.q4_7 == true ? course[8] = false : ''
+        getCookie.q4_8 == true ? course[9] = false : ''
+        var count = 0;
+        for(var i = 1; i <= 9; ++i) {
+          if(course[i] == false) {
+            ++count
+            if(count > 3) course[i] = true
+          }
+        }
+        course[1] == false ? this.course1 = course[1] : ''
+        course[2] == false ? this.course2 = course[2] : ''
+        course[3] == false ? this.course3 = course[3] : ''
+        course[4] == false ? this.course4 = course[4] : ''
+        course[5] == false ? this.course5 = course[5] : ''
+        course[6] == false ? this.course6 = course[6] : ''
+        course[7] == false ? this.course7 = course[7] : ''
+        course[8] == false ? this.course8 = course[8] : ''
+        course[9] == false ? this.course9 = course[9] : ''
+
+        if(course.length == 0) {
+          return true
+        } else {
+          return false
+        }
       }
     }
   });
@@ -82,7 +169,7 @@
 <script>
   setTimeout(function(){
     odometer_1.innerHTML = vm.getNumberMain();
-    odometer_2.innerHTML = vm.getNumberMain();
+    odometer_2.innerHTML = vm.getNumberSub();
   }, 1000);
 </script>
 
