@@ -8,47 +8,83 @@
 
   <style>
     #app { padding: 35px; }
+    .notActive { display: none; }
   </style>
 
   <link rel="stylesheet" href="odometer-theme-default.css" />
+  <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+
+  <script src="odometer.js"></script>
+  <script>
+    
+  </script>
   
 </head>
 <body>
 <div id="app">
   <div id="odometer_1" class="odometer"></div>
   <div id="odometer_2" class="odometer"></div>
+
+  <hr>
+
+  <div
+    style="border:solid;"
+    v-bind:class="{notActive: res1_1 && res1_2 && (res1_3 || res1_4)}"
+  >
+    <div v-bind:class="{notActive: res1_1}">Text1_1</div>
+    <div v-bind:class="{notActive: res1_2}">Text1_2</div>
+    <div v-bind:class="{notActive: res1_3 || res1_4}">Text1_3</div>
+  </div>
+
+  <hr>
+
+  <div
+    style="border:solid;"
+    v-bind:class="{notActive: res2_1 && res2_2 && res2_3 && res2_4}"
+  >
+    <div v-bind:class="{notActive: res2_1}">Text2_1</div>
+    <div v-bind:class="{notActive: res2_2}">Text2_2</div>
+    <div v-bind:class="{notActive: res2_3}">Text2_3</div>
+    <div v-bind:class="{notActive: res2_4}">Text2_4</div>
+  </div>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
 <script src="https://unpkg.com/vue-cookies@1.7.3/vue-cookies.js"></script>
-<script src="odometer.js"></script>
+
+<script>
+  getCookie = this.$cookies.get('CookieValue')
+
+  vm = new Vue({
+    el: '#app',
+    data:{
+      res1_1: getCookie.q1_1,
+      res1_2: getCookie.q1_2,
+      res1_3: getCookie.q1_3,
+      res1_4: getCookie.q1_4,
+      res2_1: getCookie.q2_1,
+      res2_2: getCookie.q2_2,
+      res2_3: getCookie.q2_3,
+      res2_4: getCookie.q2_4,
+    },
+    methods: {
+      getNumberMain:function(){
+        var num = 0
+        getCookie.q3_1 == true ? num += 10000 : num += 0
+        getCookie.q3_2 == true ? num += 1000 : num += 0
+        return num
+      }
+    }
+  });
+</script>
 
 <script>
   setTimeout(function(){
-    $('#odometer_1').html(vm.getNumber());
-    $('#odometer_2').html('12345');
+    odometer_1.innerHTML = vm.getNumberMain();
+    odometer_2.innerHTML = vm.getNumberMain();
   }, 1000);
-
-  vm = new Vue({
-  el: '#app',
-  data:{
-    CookieValue: ''
-  },
-  methods: {
-    getNumber:function(){
-      var num = 0
-      getCookie = this.$cookies.get('CookieValue')
-      getCookie.q1 == true ? num += 10000 : num += 0
-      getCookie.q2 == true ? num += 1000 : num += 0
-      return num
-    }
-  }
-});
 </script>
-
-<link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
-
 
 </body>
 </html>

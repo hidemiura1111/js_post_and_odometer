@@ -15,26 +15,55 @@
   <div class="mb-3">
     <div class="">
     </div>
-    <label>Q1: </label>
-    <input type="checkbox" class="" v-model="q1">
-    <input type="checkbox" class="" v-model="q2">
-    <input type="checkbox" class="" v-model="q3">
-    <input type="checkbox" class="" v-model="q4">
-    <input type="checkbox" class="" v-model="q5">
-    <input type="checkbox" class="" v-model="q6">
-    <input type="checkbox" class="" v-model="q7">
-    <input type="checkbox" class="" v-model="q8">
-    <input type="checkbox" class="" v-model="q9">
-    <input type="checkbox" class="" v-model="q10">
-    <input type="checkbox" class="" v-model="q11">
-    <input type="checkbox" class="" v-model="q12">
-    <input type="checkbox" class="" v-model="q13">
-    <input type="checkbox" class="" v-model="q14">
-    <input type="checkbox" class="" v-model="q15">
-    <input type="checkbox" class="" v-model="q16">
-    <input type="checkbox" class="" v-model="q17">
-    <input type="checkbox" class="" v-model="q18">
-    <input type="checkbox" class="" v-model="q19">
+    <div>
+      <label>Q1_1: </label>
+      <input type="checkbox" class="" v-model="q1_1">
+      <label>Q1_2: </label>
+      <input type="checkbox" class="" v-model="q1_2">
+      <label>Q1_3: </label>
+      <input type="checkbox" class="" v-model="q1_3">
+      <label>Q1_4: </label>
+      <input type="checkbox" class="" v-model="q1_4">
+    </div>
+
+    <div>
+      <label>Q2_1: </label>
+      <input type="checkbox" class="" v-model="q2_1">
+      <label>Q2_2: </label>
+      <input type="checkbox" class="" v-model="q2_2">
+      <label>Q2_3: </label>
+      <input type="checkbox" class="" v-model="q2_3">
+      <label>Q2_4: </label>
+      <input type="checkbox" class="" v-model="q2_4">
+    </div>
+
+    <div>
+      <label>Q3_1: </label>
+      <input type="checkbox" class="" v-model="q3_1">
+      <label>Q3_2: </label>
+      <input type="checkbox" class="" v-model="q3_2">
+      <label>Q3_3: </label>
+      <input type="checkbox" class="" v-model="q3_3">
+    </div>
+
+    <div>
+      <label>Q4_1: </label>
+      <input type="checkbox" class="" v-model="q4_1">
+      <label>Q4_2: </label>
+      <input type="checkbox" class="" v-model="q4_2">
+      <label>Q4_3: </label>
+      <input type="checkbox" class="" v-model="q4_3">
+      <label>Q4_4: </label>
+      <input type="checkbox" class="" v-model="q4_4">
+      <label>Q4_5: </label>
+      <input type="checkbox" class="" v-model="q4_5">
+      <label>Q4_6: </label>
+      <input type="checkbox" class="" v-model="q4_6">
+      <label>Q4_7: </label>
+      <input type="checkbox" class="" v-model="q4_7">
+      <label>Q4_8: </label>
+      <input type="checkbox" class="" v-model="q4_8">
+    </div>
 
     <br>
     <hr>
@@ -59,48 +88,48 @@
   vm = new Vue({
     el: '#app',
     data: {
-      q1: false,
-      q2: false,
-      q3: false,
-      q4: false,
-      q5: false,
-      q6: false,
-      q7: false,
-      q8: false,
-      q9: false,
-      q10: false,
-      q11: false,
-      q12: false,
-      q13: false,
-      q14: false,
-      q15: false,
-      q16: false,
-      q17: false,
-      q18: false,
-      q19: false,
+      q1_1: false,
+      q1_2: false,
+      q1_3: false,
+      q1_4: false,
+      q2_1: false,
+      q2_2: false,
+      q2_3: false,
+      q2_4: false,
+      q3_1: false,
+      q3_2: false,
+      q3_3: false,
+      q4_1: false,
+      q4_2: false,
+      q4_3: false,
+      q4_4: false,
+      q4_5: false,
+      q4_6: false,
+      q4_7: false,
+      q4_8: false,
     },
     methods: {
       setCookie:function(){
         var cookieSet = { 
-          q1:this.q1,
-          q2:this.q2,
-          q3:this.q3,
-          q4:this.q4,
-          q5:this.q5,
-          q6:this.q6,
-          q7:this.q7,
-          q8:this.q8,
-          q9:this.q9,
-          q10:this.q10,
-          q11:this.q11,
-          q12:this.q12,
-          q13:this.q13,
-          q14:this.q14,
-          q15:this.q15,
-          q16:this.q16,
-          q17:this.q17,
-          q18:this.q18,
-          q19:this.q19,
+          q1_1:this.q1_1,
+          q1_2:this.q1_2,
+          q1_3:this.q1_3,
+          q1_4:this.q1_4,
+          q2_1:this.q2_1,
+          q2_2:this.q2_2,
+          q2_3:this.q2_3,
+          q2_4:this.q2_4,
+          q3_1:this.q3_1,
+          q3_2:this.q3_2,
+          q3_3:this.q3_3,
+          q4_1:this.q4_1,
+          q4_2:this.q4_2,
+          q4_3:this.q4_3,
+          q4_4:this.q4_4,
+          q4_5:this.q4_5,
+          q4_6:this.q4_6,
+          q4_7:this.q4_7,
+          q4_8:this.q4_8,
         };
         this.$cookies.config(60 * 60 * 24 * 30,'');
         this.$cookies.set('CookieValue', cookieSet);
