@@ -12,7 +12,7 @@
 
   DIGIT_FORMAT = '(,ddd).dd';
 
-  MIN_INTEGER_LEN = 5;
+  MIN_INTEGER_LEN = 6;
 
   FORMAT_PARSER = /^\(?([^)]*)\)?(?:(.)(D*)(d*))?$/;
 
